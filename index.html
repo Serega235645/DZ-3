@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>jQuery UI Draggable - Default functionality</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+ 
+ 
+  <style>
+  #draggable, #draggable2, #draggable3, #draggable4 { width: 100px; height: 100px; padding: 0.5em; }
+  #droppable { width: 120px; height: 100px; padding: 0.5em; float: left; margin: 10px; }
+  #resizable { width: 150px; height: 150px; padding: 0.5em; }
+  #resizable h3 { text-align: center; margin: 0; }
+  .ui-resizable-helper { border: 1px dotted gray; }
+  #sortable { list-style-type: none; margin: 0; padding: 0; width: 60%; }
+  #sortable li { margin: 0 3px 3px 3px; padding: 0.4em; padding-left: 1.5em; font-size: 1.4em; height: 18px; }
+  #sortable li span { position: absolute; margin-left: -1.3em; }
+
+body{
+  background: #fa8e47;
+	   color: #fff;
+}
+
+
+h1{
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+ p{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+ }
+
+  
+  </style>
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+  <script>
+  $( function() {
+    $( "#draggable" ).draggable({ revert: "valid" });
+    $( "#draggable2" ).draggable({ revert: "valid" });
+    $( "#draggable3" ).draggable({ revert: "invalid" });
+    $( "#draggable4" ).draggable({ revert: "valid" });
+
+    $( "#droppable" ).droppable({
+      classes: {
+        "ui-droppable-active": "ui-state-active",
+        "ui-droppable-hover": "ui-state-hover"
+      },
+      drop: function( event, ui ) {
+        $( this )
+          .addClass( "ui-state-highlight" )
+          .find( "p" )
+            .html( "Правильна відповідь!" );
+      }
+    });
+
+    $( "#resizable" ).resizable({
+      animate: true
+    });
+
+    $( "#sortable" ).sortable();
+
+
+
+  
+  
+   
+   
+    
+    
+  } );
+
+  
+
+  </script>
+</head>
+<body>
+   <strong><h1>Тест по Історії України </h1></strong> 
+
+   <strong><p>1. Визначте хронологічні рамки Першої світової війни</p></strong>  
+<div id="draggable" class="ui-widget-content">
+     <p>1900-1907 рр.</p>
+</div>
+
+<div id="draggable2" class="ui-widget-content">
+    <p>1907-1914 рр.</p>
+  </div>
+    
+<div id="draggable3" class="ui-widget-content">
+    <p>1914-1918 рр.</p>
+  </div>
+
+<div id="draggable4" class="ui-widget-content">
+    <p>1917-1920 рр.</p>
+  </div>
+  
+  <div id="droppable" class="ui-widget-header">
+  <p>Одна відповідь</p>
+</div>
+
+
+<strong><p>2. Невеликий відеоролик на тему "Перша світова війна "</p></strong>
+
+<div id="resizable" class="ui-widget-content">
+  <h3 class="ui-widget-header">Перша світова війна</h3>
+</div>
+
+<strong><p>3. Хронологія Першої світової війни</p></strong>
+
+<ul id="sortable">
+  <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s">Австро-Угорщина оголосила війну Сербії
+
+  </span></li>
+  <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"> Битва під Верденом</span></li>
+  <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s">Горлицький прорив</span></li>
+  <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s">"Весняний наступ" Німеччини</span></li>
+  <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"> Вступ до війни США</span></li>
+</ul>
+
+</body>
+</html>                
